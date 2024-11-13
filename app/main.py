@@ -1,3 +1,6 @@
+from typing import Tuple, List, Dict, Any
+
+
 class Person:
     people: Dict[str, "Person"] = {}
 
