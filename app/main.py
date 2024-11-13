@@ -7,8 +7,6 @@ class Person:
     def __init__(self, name: str, age: int) -> None:
         self.name = name
         self.age = age
-        self.wife = None
-        self.husband = None
         Person.people[name] = self
 
 
@@ -20,8 +18,8 @@ def create_person_list(people: List[Dict[str, Any]]) -> List[Person]:
     for person in people:
         person_instance = Person.people[person["name"]]
         if "wife" in person and person["wife"]:
-            person_instance.wife = Person.people[person["wife"]]
+            setattr(person_instance, "wife", Person.people[person["wife"]])
         elif "husband" in person and person["husband"]:
-            person_instance.husband = Person.people[person["husband"]]
+            setattr(person_instance, "husband", Person.people[person["husband"]])
 
     return person_list
