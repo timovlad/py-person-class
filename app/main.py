@@ -20,6 +20,10 @@ def create_person_list(people: List[Dict[str, Any]]) -> List[Person]:
         if "wife" in person and person["wife"]:
             setattr(person_instance, "wife", Person.people[person["wife"]])
         elif "husband" in person and person["husband"]:
-            setattr(person_instance, "husband", Person.people[person["husband"]])
+            setattr(
+                person_instance,
+                "husband",
+                Person.people[person["husband"]]
+            )
 
     return person_list
